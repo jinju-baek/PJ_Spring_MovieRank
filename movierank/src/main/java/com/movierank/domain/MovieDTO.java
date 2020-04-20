@@ -1,5 +1,8 @@
 package com.movierank.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +14,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Document(collection = "movie")
 public class MovieDTO {
+	// 특정 컬렉션에 값을 넣고 싶을 경우
+	// @Document(collection = "컬렉션명") 사용
+	@Id
 	private int rank; // 순위
 	private String movie; // 영화 제목
 	private String imgsrc; // 포스터 이미지

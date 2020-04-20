@@ -78,8 +78,11 @@ public class MovieService {
 				daumscore = Double.parseDouble(daumPoint); // 다음 평점
 			}
 			
+			double score = (naverscore + daumscore) / 2.0;
+			score = Math.round(score * 10) / 10.0;
 			
-			MovieDTO mDto = new MovieDTO(rank, movie, imgsrc, type, opendate, bookingrate, runtime, director, actor, navercode, naverscore, daumcode, daumscore);
+			
+			MovieDTO mDto = new MovieDTO(rank, movie, imgsrc, type, opendate, bookingrate, runtime, director, actor, navercode, naverscore, daumcode, daumscore, score);
 			
 			log.info("<><><><><><>MOVIE: "+ mDto.toString());
 			rankList.add(mDto);
